@@ -138,8 +138,8 @@ class CabWriter:
                               len(self.RegKeys), len(self.Links))
         header += struct.pack('<IIIIII', strings_offset, directories_offset, 
                               files_offset, reghives_offset, regkeys_offset, links_offset)
-        header += struct.pack('<HHHHHHHH', application_offset, len(self.AppName), 
-                              provider_offset, len(self.Provider), 
+        header += struct.pack('<HHHHHHHH', application_offset, len(self.AppName) + 1, 
+                              provider_offset, len(self.Provider) + 1, 
                               unsupported_offset, len(self.Unsupported), 0, 0)
         
         return (header + application + provider + unsupported + 
