@@ -55,14 +55,14 @@ class InfCabGlue:
         
         min = self.__parse_device_version('VersionMin')
         if not min: return False
-        cab.VersionMin = min
+        cab.MinVersion = min
         
         max = self.__parse_device_version('VersionMax')
         if not max: return False
-        cab.VersionMax = max
+        cab.MaxVersion = max
         
         if 'BuildMax' in self.__inf['CEDevice']:
-            cab.BuildMax = int(self.__inf['CEDevice']['BuildMax'], 16)
+            cab.MaxBuild = int(self.__inf['CEDevice']['BuildMax'], 16)
             
         return True
     
