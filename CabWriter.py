@@ -157,7 +157,7 @@ class CabWriter:
         lcab_args = ['lcab', '-n']
         lcab_args.append(dir + manifest)
         
-        for file in self.Files:
+        for file in reversed(self.Files):
             lcab_args.append(file[1] + file[0])
             
         if self.SetupFile != "": lcab_args.append(self.SetupFile)
